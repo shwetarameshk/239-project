@@ -153,71 +153,60 @@ function predictDiagnosis (clump_thick,cell_size,cell_shape, marg_adh,ep_cell_si
 
 	document.getElementById('csizeu1').style.display = 'block';
 	document.getElementById('csizeu1').style.visibility = "visible";
-	var chart = new Highcharts.Chart({
-		chart: {
-			renderTo: 'csizeu1',
-			type: 'column'
-		},
-		title: {
-			text: 'Stats based on CellSizeUniformity'
-		},
-		xAxis: {
-			title:{
-				text: 'CellSizeUniformity'
-			},
-			categories: [1,2,3,4,5,6,7,8,9,10]
-		},
-		yAxis: {
-			min: 0,
-			title: {
-				text: 'Number of patients'
-			},
-			stackLabels: {
-				enabled: true,
-				style: {
-					fontWeight: 'bold',
-					color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-				}
-			}
-		},
-		legend: {
-			align: 'right',
-			x: -70,
-			verticalAlign: 'top',
-			y: 20,
-			floating: true,
-			backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-			borderColor: '#CCC',
-			borderWidth: 1,
-			shadow: false
-		},
-		tooltip: {
-			formatter: function () {
-				return '<b>' + this.x + '</b><br/>' +
-				this.series.name + ': ' + this.y + '<br/>' +
-				'Total: ' + this.point.stackTotal;
-			}
-		},
-		plotOptions: {
-			column: {
-				stacking: 'normal',
-				dataLabels: {
-					enabled: true,
-					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-					style: {
-						textShadow: '0 0 3px black, 0 0 3px black'
-					}
-				}
-			}
-		},
-		series: [{
-			name: 'Benign',
-			data: [369,37,27,8,0,0,1,1,9,0]
-		}, {
-			name: 'Malignant',
-			data: [4,8,25,30,30,25,18,27,5,67]
-		}]
-	});
+    //cellsize
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'csizeu1',
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: true,
+                alpha: 0,
+                beta: 0,
+                depth: 25,
+                viewDistance: 10
+            }
+        },
+        xAxis: {
+            title:{
+                text: 'Stats based on CellSizeUniformity'
+            },
+            categories: [1,2,3,4,5,6,7,8,9,10]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number of patients'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        title: {
+            text: 'Stats based on CellSizeUniformity'
+        },
+        subtitle: {
+            text: ''
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        series: [{
+            name: 'Benign',
+            data: [369,37,27,8,0,0,1,1,9,0]
+        }, {
+            name: 'Malignant',
+            data: [4,8,25,30,30,25,18,27,5,67]
+        }]
+    });
+
+
 document.getElementById('cshapeu1').style.display = 'block';
 document.getElementById('cshapeu1').style.visibility = "visible";
 	// Set up the chart
@@ -254,7 +243,7 @@ document.getElementById('cshapeu1').style.visibility = "visible";
 			}
 		},
 		title: {
-			text: 'Stats based on ClumpThickness'
+			text: 'Stats based on CellShapeUniformity'
 		},
 		subtitle: {
 			text: ''
@@ -275,71 +264,58 @@ document.getElementById('cshapeu1').style.visibility = "visible";
 
 	document.getElementById('ma1').style.display = 'block';
 	document.getElementById('ma1').style.visibility = "visible";
-	var chart = new Highcharts.Chart({
-		chart: {
-			renderTo: 'ma1',
-			type: 'column'
-		},
-		title: {
-			text: 'Stats based on Marginal Adhesion'
-		},
-		xAxis: {
-			title:{
-				text: 'MarginalAdhesion'
-			},
-			categories: [1,2,3,4,5,6,7,8,9,10]
-		},
-		yAxis: {
-			min: 0,
-			title: {
-				text: 'Number of patients'
-			},
-			stackLabels: {
-				enabled: true,
-				style: {
-					fontWeight: 'bold',
-					color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-				}
-			}
-		},
-		legend: {
-			align: 'right',
-			x: -70,
-			verticalAlign: 'top',
-			y: 20,
-			floating: true,
-			backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-			borderColor: '#CCC',
-			borderWidth: 1,
-			shadow: false
-		},
-		tooltip: {
-			formatter: function () {
-				return '<b>' + this.x + '</b><br/>' +
-				this.series.name + ': ' + this.y + '<br/>' +
-				'Total: ' + this.point.stackTotal;
-			}
-		},
-		plotOptions: {
-			column: {
-				stacking: 'normal',
-				dataLabels: {
-					enabled: true,
-					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-					style: {
-						textShadow: '0 0 3px black, 0 0 3px black'
-					}
-				}
-			}
-		},
-		series: [{
-			name: 'Benign',
-			data: [363, 37,31,5,4,3,0,0,0,1]
-		}, {
-			name: 'Malignant',
-			data: [30,21, 27, 28, 19,18,13,25,4,54]
-		}]
-	});
+    //ma
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'ma1',
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: true,
+                alpha: 0,
+                beta: 0,
+                depth: 25,
+                viewDistance: 10
+            }
+        },
+        xAxis: {
+            title:{
+                text: 'MarginalAdhesion'
+            },
+            categories: [1,2,3,4,5,6,7,8,9,10]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number of patients'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        title: {
+            text: 'Stats based on Marginal Adhesion'
+        },
+        subtitle: {
+            text: ''
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        series: [{
+            name: 'Benign',
+            data: [363, 37,31,5,4,3,0,0,0,1]
+        }, {
+            name: 'Malignant',
+            data: [30,21, 27, 28, 19,18,13,25,4,54]
+        }]
+    });
 
 document.getElementById('bn1').style.display = 'block';
 document.getElementById('bn1').style.visibility = "visible";
@@ -398,71 +374,57 @@ document.getElementById('bn1').style.visibility = "visible";
 
 	document.getElementById('nn1').style.display = 'block';
 	document.getElementById('nn1').style.visibility = "visible";
-	var chart = new Highcharts.Chart({
-		chart: {
-			renderTo: 'nn1',
-			type: 'column'
-		},
-		title: {
-			text: 'Stats based on NormalNucleoli'
-		},
-		xAxis: {
-			title:{
-				text: 'NormalNucleoli'
-			},
-			categories: [1,2,3,4,5,6,7,8,9,10]
-		},
-		yAxis: {
-			min: 0,
-			title: {
-				text: 'Number of patients'
-			},
-			stackLabels: {
-				enabled: true,
-				style: {
-					fontWeight: 'bold',
-					color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-				}
-			}
-		},
-		legend: {
-			align: 'right',
-			x: -70,
-			verticalAlign: 'top',
-			y: 20,
-			floating: true,
-			backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-			borderColor: '#CCC',
-			borderWidth: 1,
-			shadow: false
-		},
-		tooltip: {
-			formatter: function () {
-				return '<b>' + this.x + '</b><br/>' +
-				this.series.name + ': ' + this.y + '<br/>' +
-				'Total: ' + this.point.stackTotal;
-			}
-		},
-		plotOptions: {
-			column: {
-				stacking: 'normal',
-				dataLabels: {
-					enabled: true,
-					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-					style: {
-						textShadow: '0 0 3px black, 0 0 3px black'
-					}
-				}
-			}
-		},
-		series: [{
-			name: 'Benign',
-			data: [391,30,11,1,2,4,2,3,0,0]
-		}, {
-			name: 'Malignant',
-			data: [41,6,31,17,17,18,14,20,15,60]
-		}]
-	});
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'nn1',
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: true,
+                alpha: 0,
+                beta: 0,
+                depth: 25,
+                viewDistance: 10
+            }
+        },
+        xAxis: {
+            title:{
+                text: 'NormalNucleoli'
+            },
+            categories: [1,2,3,4,5,6,7,8,9,10]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number of patients'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        title: {
+            text: 'Stats based on NormalNucleoli'
+        },
+        subtitle: {
+            text: ''
+        },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        series: [{
+            name: 'Benign',
+            data: [391,30,11,1,2,4,2,3,0,0]
+        }, {
+            name: 'Malignant',
+            data: [41,6,31,17,17,18,14,20,15,60]
+        }]
+    });
 
 return diagnosis;
 }
