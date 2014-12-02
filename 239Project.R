@@ -1,5 +1,7 @@
+#Download data set from S3
+download.file("https://s3-us-west-1.amazonaws.com/smartminers-bucket/BreastCancer.csv", destfile = "/tmp/BreastCancer.csv", method = "curl")
 #Read the file into a data frame
-BreastCancer <- read.csv("~/Desktop/BreastCancer.csv", header=FALSE)
+BreastCancer <- read.csv("/tmp/BreastCancer.csv", header=FALSE)
 View(BreastCancer)
 
 #Add headers to the columns
